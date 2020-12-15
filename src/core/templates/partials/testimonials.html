@@ -1,0 +1,29 @@
+{% load static %}
+
+<section id="testimonials" class="testimonials section-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Testimonials</h2>
+        <p>What they're saying about us</p>
+      </div>
+
+      <div class="owl-carousel testimonials-carousel" data-aos="zoom-in" data-aos-delay="100">
+        {% for person in testimonial %}
+        <div class="testimonial-item">
+          <p>
+            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+            {{person.message}}
+            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+          </p>
+          <img src="{{person.image.url}}" class="testimonial-img" alt="">
+          <h3>{{person.name}}</h3>
+          <h4>{{person.occupation}}</h4>
+        </div>
+    
+        {% endfor %}
+    
+      </div>
+
+    </div>
+  </section>

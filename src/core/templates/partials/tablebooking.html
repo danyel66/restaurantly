@@ -8,39 +8,31 @@
         <p>Book a Table</p>
       </div>
 
-      {% if messages %}
-      <div class="messages">
-          {% for message in messages %}
-          <div{% if message.tags %} class="alert alert-sm alert-{{ message.tags }}"{% endif %}>{{ message }}</div>
-          {% endfor %}
-      </div>
-      {% endif %}
-
       <form action="{% url 'index' %}" method="post" role="form" class="email-form">
         {% csrf_token %}
         <div class="form-row">
           <div class="col-lg-4 col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{value.name}}">
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-6 form-group">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" value="{{value.email}}">
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-6 form-group">
-            <input type="number" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <input type="number" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{value.phone}}">
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-6 form-group">
-            <input type="date" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <input type="date" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{value.date}}">
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-6 form-group">
-            <input type="time" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <input type="time" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4" data-msg="Please enter at least 4 chars" value="{{value.time}}">
             <div class="validate"></div>
           </div>
           <div class="col-lg-4 col-md-6 form-group">
-            <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars">
+            <input type="number" class="form-control" name="people" id="people" placeholder="# of people" data-rule="minlen:1" data-msg="Please enter at least 1 chars" value="{{value.number}}">
             <div class="validate"></div>
           </div>
         </div>
@@ -48,13 +40,7 @@
           <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
           <div class="validate"></div>
         </div>
-        <!-- <div class="mb-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your booking request was sent. We will call back or send an Email to confirm your reservation. Thank you!</div>
-        </div> -->
-        <input class="text-center" type="submit" value="submit">
-        <!-- <div class="text-center"><button type="submit">Book a Table</button></div> -->
+        <div class="text-center"><button type="submit">Book a Table</button></div>
       </form>
 
     </div>
