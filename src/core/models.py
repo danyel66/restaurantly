@@ -123,3 +123,16 @@ class BookingModel(models.Model):
 
     def __str__(self):
         return self.name
+
+class NewsletterModel(models.Model):
+    email = models.EmailField(max_length=100)
+    date = models.DateTimeField(auto_now_add=True)
+
+
+    class Meta:
+        ordering: ['-date']
+        verbose_name = 'Newletter'
+
+
+    def __str__(self):
+        return self.email

@@ -1,4 +1,17 @@
 from django import forms
+from .models import NewsletterModel
+
+class NewsletterForm(forms.ModelForm):
+    email = forms.CharField(required=True, widget=forms.TextInput(attrs=
+                        {
+                            'name': 'email',
+                            'type': 'email',
+                        }), label="")
+
+    class Meta:
+        model = NewsletterModel
+        fields = ('email', )
+
 
 
 class ContactForm(forms.Form):

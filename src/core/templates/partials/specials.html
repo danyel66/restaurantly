@@ -14,7 +14,7 @@
           <ul class="nav nav-tabs flex-column">
             {% for item in specials %}
             <li class="nav-item">
-              <a  class="nav-link show" data-toggle="tab" href="#tab-{{forloop.counter}}">{{item.name}}</a>
+              <a {% if forloop.counter == 1 %} class="nav-link show active" data-toggle="tab" href="#tab-1"  {% else %} class="nav-link show" data-toggle="tab" href="#tab-{{forloop.counter}}"  {% endif %}>{{item.name}}</a>
             </li>
             {% endfor %}
           </ul>
@@ -23,7 +23,7 @@
         <div class="col-lg-9 mt-4 mt-lg-0">
           <div class="tab-content">
             {% for item in specials %}
-            <div class="tab-pane show" id="tab-{{forloop.counter}}">
+            <div {% if forloop.counter == 1 %} class="tab-pane show active" id="tab-1" {% else %} class="tab-pane show" id="tab-{{forloop.counter}}"{% endif %}>
               <div class="row">
                 <div class="col-lg-8 details order-2 order-lg-1">
                   <h3>{{item.title}}</h3>
